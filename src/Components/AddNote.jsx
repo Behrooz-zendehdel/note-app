@@ -18,6 +18,7 @@ const AddNote = ({ handleAddNote }) => {
   return (
     <div className="note new">
       <textarea
+        autoFocus
         placeholder="Type to add note ..."
         cols="10"
         rows="8"
