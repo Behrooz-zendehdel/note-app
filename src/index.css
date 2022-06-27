@@ -32,6 +32,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  white-space: pre-wrap;
 }
 .note-footer {
   display: flex;
@@ -58,4 +59,10 @@ textarea:focus {
 .save:hover {
   cursor: pointer;
   background-color: #ededed;
+}
+.delete-icon {
+  cursor: pointer;
+}
+.delete-icon:hover {
+  color: red;
 }

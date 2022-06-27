@@ -25,11 +25,25 @@ const App = () => {
       id: nanoid(),
     },
   ]);
+  const AddNote = (text) => {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString(),
+    };
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  };
+  const deleteNote = (id) => {
+   const newNotes= notes.filter((note) => note.id !== id);
+   setNotes(newNotes)
+  };
 
   return (
     <div>
       <div className="container">
-        <NoteList notes={notes} />
+        <NoteList notes={notes} handleAddNote={AddNote} handleDeleteNote={deleteNote} />
       </div>
     </div>
   );
