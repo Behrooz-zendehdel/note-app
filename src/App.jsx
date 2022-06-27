@@ -27,6 +27,20 @@ const App = () => {
       id: nanoid(),
     },
   ]);
+
+  const [searchText, setSearchText] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
+  // get localStorage
+  useEffect(() => {
+    const savedNote = JSON.parse(localStorage.getItem("react-notes"));
+    setNotes(savedNote);
+  }, []);
+
+  // set localStorage
+  useEffect(() => {
+    localStorage.setItem("react-notes", JSON.stringify(notes));
+  }, [notes]);
+
   const AddNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -41,21 +55,6 @@ const App = () => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
-  const [searchText, setSearchText] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
-
-    if (savedNotes) {
-      setNotes(savedNotes);
-    }
-  }, []);
-
-  // set localStorage
-  useEffect(() => {
-    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
-  }, [notes]);
 
   return (
     <div className={`${darkMode && "dark-mode"}`}>
