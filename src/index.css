@@ -82,3 +82,8 @@ textarea:focus {
 .search input:focus {
   outline: none;
 }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
